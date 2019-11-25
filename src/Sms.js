@@ -10,7 +10,7 @@ admin.initializeApp({
 
 let db = admin.firestore();
 
-var send = function(originNumber, destinationNumber, messeger, callback){
+var send = function(originNumber, destinationNumber, message, callback){
 
     
     var usersRef = db.collection("Users").doc(originNumber)
@@ -22,8 +22,8 @@ var send = function(originNumber, destinationNumber, messeger, callback){
 
         console.log('Document data:', doc.data());
         var user = doc.data();
-        console.log('Token', user.tokem)
-        var pushToken = user.tokem;
+        console.log('Token', user.token)
+        var pushToken = user.token;
         //var payload = { OriginNumber: originNumber, DestinationNumber : destinationNumber, Messeger: messeger }
         var payload = {
             notification: {
@@ -33,7 +33,7 @@ var send = function(originNumber, destinationNumber, messeger, callback){
 
             data: {
                 DestinationNumber: destinationNumber,
-                Messeger: messeger
+                Message: message
               }
           };
           

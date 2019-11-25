@@ -9,14 +9,14 @@ app.post('/Send', function (req, res) {
       
       var originNumber =  req.body.OriginNumber == undefined ? '' : req.body.OriginNumber
       var destinationNumber =  req.body.DestinationNumber == undefined ? '' : req.body.DestinationNumber
-      var messenger = req.body.Messenger == undefined ? '' : req.body.Messenger
+      var message = req.body.Message == undefined ? '' : req.body.Message
 
-      sms.send(originNumber, destinationNumber, messenger,  function(error) {
+      sms.send(originNumber, destinationNumber, message,  function(error) {
         if (error) {
-          res.send({Error: error, Messenger:'Erro send messenger...'});
+          res.send({Error: error, Message:'Erro send messenger...'});
         } 
         else {
-          res.send({Error: error, Messenger:'successfully send messenger...'});
+          res.send({Error: error, Message:'successfully send messenger...'});
         }
       })
 

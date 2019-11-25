@@ -6,9 +6,7 @@ app.use(bodyParser.json()); //need to parse HTTP request body
 
 app.post('/Send', function (req, res) {
     try{
-
-        
-
+      
       var originNumber =  req.body.OriginNumber == undefined ? '' : req.body.OriginNumber
       var destinationNumber =  req.body.DestinationNumber == undefined ? '' : req.body.DestinationNumber
       var messenger = req.body.Messenger == undefined ? '' : req.body.Messenger

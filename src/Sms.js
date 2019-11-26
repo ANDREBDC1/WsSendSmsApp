@@ -26,12 +26,7 @@ var send = function(originNumber, destinationNumber, message, callback){
         var pushToken = user.token;
         //var payload = { OriginNumber: originNumber, DestinationNumber : destinationNumber, Messeger: messeger }
         var payload = {
-            notification: {
-              title: "Enviando Sms",
-              body: "Enviando sms para " + destinationNumber
-            },
-
-            data: {
+           data: {
                 DestinationNumber: destinationNumber,
                 Message: message
               }

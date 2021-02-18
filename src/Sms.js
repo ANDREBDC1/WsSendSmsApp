@@ -22,7 +22,7 @@ var send = function(originNumber, destinationNumber, message, callback){
 
         console.log('Document data:', doc.data());
         var user = doc.data();
-        console.log('Token', user.token)
+
         var pushToken = user.token;
         //var payload = { OriginNumber: originNumber, DestinationNumber : destinationNumber, Messeger: messeger }
         var payload = {
@@ -34,7 +34,8 @@ var send = function(originNumber, destinationNumber, message, callback){
           
            var options = {
             priority: "high",
-            timeToLive: 60 * 60 *24
+            timeToLive: 60 * 60 *24,
+            contentAvailable: true,
           };
         admin.messaging().sendToDevice(pushToken, payload, options)
         .then(function(response) {
